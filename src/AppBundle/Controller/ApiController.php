@@ -10,12 +10,13 @@ use Symfony\Component\HttpFoundation\Response;
 class ApiController {
 	/**
 	 * @Route("/api/submit")
+	 * @param array $data The data to index
 	 */
-	public function submitAction() {
+	public function submitAction(array $data) {
 		$number = rand(0, 100);
 		$client = new \Elasticsearch\Client();
 		$params = array();
-		$params['body'] = array('testField' => 'abc');
+		$params['body'] = array($data);
 		$params['index'] = 'weather_station';
 		$params['type'] = 'weatherStationLog';
 		$ret = $client->index($params);
