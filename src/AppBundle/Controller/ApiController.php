@@ -14,18 +14,22 @@ class ApiController {
 	 * @Route("/api/submit")
 	 */
 	public function submitAction(Request $request) {
-
 		$dataRaw = $request->request->get('data');
+		$clientIP = $request->getClientIp();
+		$currentDate = new \DateTime();
 		if ($dataRaw === NULL) {
 			exit("Error");
 		}
-		
+
+		$storedData = json_decode($dataRaw, true);
+		$storedData['timestamp'] = $currentDate->format('d/m-Y H:i:s');
+		$storedData['clientIp'] = $clientIP;
 		$client = new \Elasticsearch\Client();
 		$params = array();
-		$params['body'] = json_decode($dataRaw);
+		$params['body'] = $storedData;
 		$params['index'] = 'weather_station';
 		$params['type'] = 'weatherStationLog';
-		$ret = $client->index($params);
+		$client->index($params);
 		return new JsonResponse(array('status' => 'OK'));
 	}
 
