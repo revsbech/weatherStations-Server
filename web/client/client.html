@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<script src="js/angular.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+<link  rel="stylesheet" href="stylesheets/screen.css" />
+
+<body>
+
+	<div class="main-container" ng-app="weatherApp" ng-controller="weatherController">
+		<h2>Temerature</h2>
+		<p>Current inside temperature = {{ weather.temperature.inside }}</p>
+
+		<h2>Available stations</h2>
+		<ul>
+			<li ng-repeat="stationName in availableStations">{{stationName}}</li>
+		</ul>
+	</div>
+
+	<script src="js/weatherController.js"></script>
+</body>
+</html>

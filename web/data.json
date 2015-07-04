@@ -1,0 +1,11 @@
+{
+  "availableStations": ["Drivhus", "Vinkælder"],
+  "selectedStation": {
+    "name": "Drivhus",
+    "temperature": {
+      "inside": 29.1
+    }
+  }
+
+}
+
