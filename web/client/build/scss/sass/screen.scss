@@ -4,18 +4,57 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+@import "weather-icons";
 
 html {
 	font-size: 120%;
 	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 300;
 }
 
 .main-container {
-	padding: 40px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.control-bar {
+	padding-top: 5px;
+	padding-bottom: 2px;
+	font-size: 0.7rem;
+	border-bottom: 1px solid black;
+	display: flex;
+
+
+	.station-name {
+		font-weight: 700;
+		flex-grow: 1;
+	}
+
+	.status {
+		flex-grow: 2;
+		text-align: right;
+	}
+}
+
+.current-weather-icon {
+	margin-bottom: 50px;
+	margin-top: 40px;
+	text-align: center;
+
+	i {
+		font-size: 200px;
+	}
+}
+
+.temperature {
+	font-size: 40px;
+}
+
+section {
+	margin-bottom: 30px;
 }
 
 h2 {
-
 	font-size: 1.4rem;
 	margin-bottom: 4px;
 	font-family: 'Open Sans Condensed', sans-serif;

@@ -4,10 +4,9 @@ app.controller('weatherController', function($scope, $http) {
 
 		// Fetch data from extenal datasource
 	$http.get("http://weather.dev/data.json").success(function(response) {
-
+		$scope.currentTime = '4. july 2016 10:06';
 		$scope.weather = response.selectedStation;
 		$scope.availableStations = response.availableStations;
-		console.log(response);
 
 	});
 

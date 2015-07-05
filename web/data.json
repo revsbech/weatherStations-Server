@@ -2,8 +2,14 @@
   "availableStations": ["Drivhus", "Vinkælder"],
   "selectedStation": {
     "name": "Drivhus",
+    "icon": "wi-day-sunny",
     "temperature": {
-      "inside": 29.1
+      "inside": 29.1,
+      "outside": 24.5
+    },
+    "humidity": {
+      "inside": 74.9,
+      "outside": 54.9
     }
   }
 

@@ -8,13 +8,31 @@
 <body>
 
 	<div class="main-container" ng-app="weatherApp" ng-controller="weatherController">
-		<h2>Temerature</h2>
-		<p>Current inside temperature = {{ weather.temperature.inside }}</p>
 
-		<h2>Available stations</h2>
+		<div class="control-bar">
+			<div class="station-name">{{weather.name}}</div>
+			<div class="status">{{currentTime}}</div>
+		</div>
+
+		<div class="current-weather-icon">
+			<i class="wi {{ weather.icon }}"></i>
+		</div>
+		<h2>Temperature</h2>
+		<section>
+			<span class="temperature">{{ weather.temperature.inside }}&deg</span> inside &nbsp;
+			<span class="temperature">{{ weather.temperature.outside }}&deg</span> outside
+		</section>
+
+		<h2>Humidity</h2>
+		<section>
+			<span class="temperature">{{ weather.humidity.inside }}%</span> inside &nbsp;
+			<span class="temperature">{{ weather.humidity.outside }}%</span> outisde
+		</section>
+		<!--<h2>Available stations</h2>
 		<ul>
 			<li ng-repeat="stationName in availableStations">{{stationName}}</li>
 		</ul>
+		-->
 	</div>
 
 	<script src="js/weatherController.js"></script>
