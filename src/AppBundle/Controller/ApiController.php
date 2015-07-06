@@ -35,6 +35,14 @@ class ApiController extends Controller {
 		if (array_key_exists('temperatureInside', $incomingData)) {
 			$measurement->setTemperatureInside($incomingData['temperatureInside']);
 		}
+		if (array_key_exists('humidityOutside', $incomingData)) {
+			$measurement->setHumidityOutside($incomingData['humidityOutside']);
+		}
+		if (array_key_exists('humidityInside', $incomingData)) {
+			$measurement->setHumidityInside($incomingData['humidityInside']);
+		}
+
+
 
 		$em = $this->getDoctrine()->getEntityManager();
 		$em->persist($measurement);
