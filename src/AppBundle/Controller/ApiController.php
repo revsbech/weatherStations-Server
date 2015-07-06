@@ -43,7 +43,6 @@ class ApiController extends Controller {
 		}
 
 
-
 		$em = $this->getDoctrine()->getEntityManager();
 		$em->persist($measurement);
 		$em->flush();

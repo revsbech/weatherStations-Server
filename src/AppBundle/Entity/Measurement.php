@@ -48,6 +48,17 @@ class Measurement {
 	 */
 	protected $humidityInside;
 
+	/**
+	 * @var integer
+	 * @ORM\Column(type="integer", nullable=true)
+	 */
+	protected $luminosity;
+
+	/**
+	 * @var boolean
+	 * @ORM\Column(type="boolean", nullable=true)
+	 */
+	protected $raining;
 
 	/**
 	 * @return mixed
@@ -137,6 +148,36 @@ class Measurement {
 	 */
 	public function setHumidityInside($humidityInside) {
 		$this->humidityInside = $humidityInside;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getLuminosity() {
+		return $this->luminosity;
+	}
+
+	/**
+	 * @param int $luminosity
+	 * @return void
+	 */
+	public function setLuminosity($luminosity) {
+		$this->luminosity = $luminosity;
+	}
+
+	/**
+	 * @return boolean
+	 */
+	public function isRaining() {
+		return $this->raining;
+	}
+
+	/**
+	 * @param boolean $raining
+	 * @return void
+	 */
+	public function setRaining($raining) {
+		$this->raining = $raining;
 	}
 
 }
