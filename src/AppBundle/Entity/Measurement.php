@@ -49,8 +49,8 @@ class Measurement {
 	protected $humidityInside;
 
 	/**
-	 * @var integer
-	 * @ORM\Column(type="integer", nullable=true)
+	 * @var float
+	 * @ORM\Column(type="float", nullable=true)
 	 */
 	protected $luminosity;
 
@@ -151,14 +151,14 @@ class Measurement {
 	}
 
 	/**
-	 * @return int
+	 * @return float
 	 */
 	public function getLuminosity() {
 		return $this->luminosity;
 	}
 
 	/**
-	 * @param int $luminosity
+	 * @param float $luminosity
 	 * @return void
 	 */
 	public function setLuminosity($luminosity) {

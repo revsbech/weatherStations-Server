@@ -30,37 +30,24 @@ class ApiController extends Controller {
 		$measurement = new Measurement();
 		$measurement->setMeasurementTime(new \DateTime());
 		if (array_key_exists('temperatureOutside', $incomingData)) {
-			$measurement->setTemperatureOutside($incomingData['temperatureOutside']);
+			$measurement->setTemperatureOutside(floatval($incomingData['temperatureOutside']));
 		}
 		if (array_key_exists('temperatureInside', $incomingData)) {
-			$measurement->setTemperatureInside($incomingData['temperatureInside']);
+			$measurement->setTemperatureInside(floatval($incomingData['temperatureInside']));
 		}
 		if (array_key_exists('humidityOutside', $incomingData)) {
-			$measurement->setHumidityOutside($incomingData['humidityOutside']);
+			$measurement->setHumidityOutside(floatval($incomingData['humidityOutside']));
 		}
 		if (array_key_exists('humidityInside', $incomingData)) {
-			$measurement->setHumidityInside($incomingData['humidityInside']);
+			$measurement->setHumidityInside(floatval($incomingData['humidityInside']));
 		}
-
+		if (array_key_exists('luminosity', $incomingData)) {
+			$measurement->setLuminosity(floatval($incomingData['luminosity']));
+		}
 
 		$em = $this->getDoctrine()->getEntityManager();
 		$em->persist($measurement);
 		$em->flush();
-		//$repo = $em->getRepository('AppBundle:Measurement');
-  		//$blog = $em->getRepository('BloggerBlogBundle:Blog')->find($id);
-		/*
-		$storedData = json_decode($dataRaw, true);
-		$storedData['timestamp'] = $currentDate->format('d/m-Y H:i:s');
-		$storedData['clientIp'] = $clientIP;
-		$client = new \Elasticsearch\Client();
-		$params = array();
-		$params['body'] = $storedData;
-		$params['index'] = 'weather_station';
-		$params['type'] = 'weatherStationLog';
-		$client->index($params);
-		*/
-
-		//{"humidityOutside":"78.2","temperatureOutside":"15.0","timestamp":"30\/06-2015 00:32:23","clientIp":"93.167.166.123"}
 		return new JsonResponse(array('status' => 'OK'));
 	}
 
